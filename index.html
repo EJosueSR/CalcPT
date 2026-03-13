@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora Lógica</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="container__informaciones">
+
+      <div class="container__logo">
+        <img src="img/uam_logo1.png" alt="Logo UAM" height="100">
+      </div>
+
+      <h1 class="container__texto container__texto-naranja">Calculadora Lógica</h1>
+      <h2 class="container__texto">Esta calculadora te permitirá realizar operaciones lógicas</h2>
+      <h4 class="container__texto">Por Eduardo Solis</h4>
+
+      <div class="inputs">
+        <input type="text" id="expression" placeholder="Ingrese una proposición lógica" class="container__input">
+      </div>
+
+      <div class="buttons">
+        <button class="container__boton" onclick="calculate()">Calcular</button>
+      </div>
+
+      <div class="result container__texto">
+        <h2>Resultado:</h2>
+        <div id="output" class="output-box">Resultado final: ...</div>
+      </div>
+
+      <div id="truthTableContainer" class="truth-table-container" style="display:none;">
+        <h2>Tabla de Verdad:</h2>
+        <div class="table-wrapper">
+          <table id="truthTable">
+            <thead>
+              <tr id="tableHeader"></tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="container__texto" style="position: relative;">
+        <button id="helpBtn" class="help-btn" onclick="openModal()" title="Ayuda">?</button>
+        <h4>Herramientas a utilizar:</h4>
+        <h4>AND (&&) - OR (||) - NOT (!)</h4>
+        <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">Nota: 0 = Falso (False), 1 = Verdadero (True)</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="welcomeModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Bienvenido a la Calculadora Lógica</h2>
+      </div>
+      <div class="modal-body">
+        <p>Esta herramienta te permite evaluar proposiciones lógicas complejas y generar tablas de verdad.</p>
+        <h3>Instrucciones de uso:</h3>
+        <ul>
+          <li>Ingresa tu proposición lógica en el campo de texto.</li>
+          <li>Puedes usar <strong>variables</strong> como <code>p</code>, <code>q</code>, <code>r</code> para generar
+            una tabla de verdad.</li>
+          <li>Utiliza los siguientes operadores:
+            <ul>
+              <li><strong>&&</strong> para AND (Y)</li>
+              <li><strong>||</strong> para OR (O)</li>
+              <li><strong>!</strong> para NOT (NO)</li>
+            </ul>
+          </li>
+          <li>Usa paréntesis <strong>()</strong> para agrupar operaciones.</li>
+          <li>También puedes usar valores constantes: <strong>true</strong>/<strong>false</strong> o
+            <strong>1</strong>/<strong>0</strong>.
+          </li>
+        </ul>
+        <p>Ejemplo: <code>(p && q) || !r</code></p>
+      </div>
+      <div class="modal-footer">
+        <button class="container__boton" onclick="closeModal()">Entendido</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
